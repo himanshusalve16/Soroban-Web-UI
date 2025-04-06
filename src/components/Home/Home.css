@@ -1,3 +1,20 @@
+/* iOS design system */
+:root {
+  --ios-background: #F2F2F7;
+  --ios-card-background: #FFFFFF;
+  --ios-text-primary: #000000;
+  --ios-text-secondary: #8E8E93;
+  --ios-text-tertiary: #C7C7CC;
+  --ios-blue: #007AFF;
+  --ios-green: #34C759;
+  --ios-orange: #FF9500;
+  --ios-purple: #5856D6;
+  --ios-red: #FF3B30;
+  --ios-border-radius: 13px;
+  --ios-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  --ios-font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+}
+
 .home-container {
   display: flex;
   flex-direction: column;
@@ -287,5 +304,231 @@ form {
   
   .examples-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+.home-container.ios-style {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--ios-background);
+  font-family: var(--ios-font);
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+}
+
+.ios-header {
+  padding: 60px 20px 0;
+  text-align: center;
+}
+
+.ios-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--ios-text-primary);
+  margin: 0;
+}
+
+.ios-subheader {
+  padding: 8px 20px 24px;
+  text-align: center;
+}
+
+.ios-subheader p {
+  font-size: 17px;
+  color: var(--ios-text-secondary);
+  margin: 0;
+}
+
+.ios-main-content {
+  padding: 0 16px;
+  flex: 1;
+}
+
+.ios-section {
+  background-color: var(--ios-card-background);
+  border-radius: var(--ios-border-radius);
+  box-shadow: var(--ios-shadow);
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.ios-section h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ios-text-primary);
+  margin: 0 0 16px 0;
+}
+
+.ios-input-field {
+  margin-bottom: 20px;
+}
+
+.ios-input-field textarea {
+  width: 100%;
+  height: 100px;
+  padding: 16px;
+  border: 1px solid rgba(60, 60, 67, 0.15);
+  border-radius: 10px;
+  font-size: 17px;
+  font-family: var(--ios-font);
+  resize: none;
+  color: var(--ios-text-primary);
+  margin-bottom: 16px;
+}
+
+.ios-input-field textarea:focus {
+  outline: none;
+  border-color: var(--ios-blue);
+}
+
+.ios-primary-button {
+  width: 100%;
+  background-color: var(--ios-blue);
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ios-primary-button:active {
+  opacity: 0.8;
+  transform: scale(0.98);
+}
+
+.ios-primary-button:disabled {
+  background-color: var(--ios-text-tertiary);
+  cursor: not-allowed;
+}
+
+.ios-separator {
+  display: flex;
+  align-items: center;
+  margin: 24px 0;
+}
+
+.ios-separator .line {
+  flex: 1;
+  height: 1px;
+  background-color: rgba(60, 60, 67, 0.15);
+}
+
+.ios-separator span {
+  padding: 0 16px;
+  color: var(--ios-text-secondary);
+  font-size: 15px;
+}
+
+.ios-secondary-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 122, 255, 0.1);
+  color: var(--ios-blue);
+  font-size: 17px;
+  font-weight: 500;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ios-secondary-button:active {
+  background-color: rgba(0, 122, 255, 0.2);
+}
+
+.ios-camera-icon {
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+.ios-examples-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.ios-example-item {
+  display: flex;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(60, 60, 67, 0.1);
+  cursor: pointer;
+}
+
+.ios-example-item:last-child {
+  border-bottom: none;
+}
+
+.ios-example-icon {
+  font-size: 24px;
+  margin-right: 16px;
+  flex-shrink: 0;
+}
+
+.ios-example-content {
+  flex: 1;
+}
+
+.ios-example-content p {
+  font-size: 17px;
+  color: var(--ios-text-primary);
+  margin: 0 0 6px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.ios-example-label {
+  font-size: 13px;
+  color: var(--ios-text-secondary);
+}
+
+.ios-chevron {
+  color: var(--ios-text-tertiary);
+  font-size: 22px;
+  margin-left: 12px;
+}
+
+.ios-footnote {
+  text-align: center;
+  padding: 16px;
+  margin-top: auto;
+}
+
+.ios-footnote p {
+  font-size: 14px;
+  color: var(--ios-text-secondary);
+  margin: 0;
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+  .ios-main-content {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .ios-header {
+    padding-top: 40px;
+  }
+  
+  .ios-header h1 {
+    font-size: 24px;
+  }
+  
+  .ios-input-field textarea {
+    height: 80px;
   }
 } 

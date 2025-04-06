@@ -24,74 +24,94 @@ const Home = () => {
     navigate('/solution', { state: { problem: 'Example Math Problem: Find the value of x in equation 3x + 7 = 22' } });
   };
 
+  const exampleProblems = [
+    {
+      id: 1,
+      text: "What is the area of a circle with radius 5cm?",
+      icon: "📏",
+      label: "Geometry"
+    },
+    {
+      id: 2,
+      text: "Solve the quadratic equation: x² - 5x + 6 = 0",
+      icon: "📊",
+      label: "Algebra"
+    },
+    {
+      id: 3,
+      text: "If a ball is thrown upward with an initial velocity of 15 m/s, when will it reach its maximum height?",
+      icon: "🎯",
+      label: "Physics"
+    }
+  ];
+
   return (
-    <div className="home-container">
-      <div className="app-header">
+    <div className="home-container ios-style">
+      <div className="ios-header">
         <h1>AI Education Helper</h1>
-        <p>Solve your math and science problems with step-by-step solutions</p>
       </div>
       
-      <div className="input-container card">
-        <form onSubmit={handleSubmit}>
-          <div className="camera-input">
-            <button 
-              type="button" 
-              className="camera-button"
-              onClick={handleCameraInput}
-            >
-              <div className="camera-icon">📷</div>
-              <div className="camera-text">
-                <span className="primary-text">Take Photo of Problem</span>
-                <span className="secondary-text">Snap a picture of your written problem</span>
-              </div>
-            </button>
+      <div className="ios-subheader">
+        <p>Solve math and science problems with steps</p>
+      </div>
+      
+      <div className="ios-main-content">
+        <div className="ios-section">
+          <div className="ios-input-field">
+            <form onSubmit={handleSubmit}>
+              <textarea
+                placeholder="Type your problem here..."
+                value={textInput}
+                onChange={handleTextInputChange}
+              />
+              <button 
+                type="submit" 
+                className="ios-primary-button"
+                disabled={!textInput.trim()}
+              >
+                Solve Problem
+              </button>
+            </form>
           </div>
           
-          <div className="separator">
+          <div className="ios-separator">
+            <div className="line"></div>
             <span>or</span>
-          </div>
-          
-          <div className="text-input">
-            <h3>Type Your Problem</h3>
-            <textarea
-              placeholder="E.g., Solve for x: 3x + 7 = 22"
-              value={textInput}
-              onChange={handleTextInputChange}
-            />
+            <div className="line"></div>
           </div>
           
           <button 
-            type="submit" 
-            className="submit-button"
-            disabled={!textInput.trim()}
+            className="ios-secondary-button"
+            onClick={handleCameraInput}
           >
-            Find Solution <span className="arrow-icon">→</span>
+            <span className="ios-camera-icon">📷</span>
+            Take Photo of Problem
           </button>
-        </form>
-      </div>
-      
-      <div className="example-problems">
-        <h3>Example Problems</h3>
-        <div className="examples-grid">
-          <div className="example-card" onClick={() => {
-            setTextInput("What is the area of a circle with radius 5cm?");
-          }}>
-            <div className="example-icon">📏</div>
-            <div className="example-text">Circle area calculation</div>
-          </div>
-          <div className="example-card" onClick={() => {
-            setTextInput("Solve the quadratic equation: x² - 5x + 6 = 0");
-          }}>
-            <div className="example-icon">📊</div>
-            <div className="example-text">Quadratic equation</div>
-          </div>
-          <div className="example-card" onClick={() => {
-            setTextInput("If a ball is thrown upward with an initial velocity of 15 m/s, when will it reach its maximum height?");
-          }}>
-            <div className="example-icon">🎯</div>
-            <div className="example-text">Physics problem</div>
+        </div>
+        
+        <div className="ios-section">
+          <h2>Example Problems</h2>
+          <div className="ios-examples-list">
+            {exampleProblems.map(example => (
+              <div 
+                key={example.id} 
+                className="ios-example-item"
+                onClick={() => setTextInput(example.text)}
+              >
+                <div className="ios-example-icon">{example.icon}</div>
+                <div className="ios-example-content">
+                  <p>{example.text}</p>
+                  <span className="ios-example-label">{example.label}</span>
+                </div>
+                <div className="ios-chevron">›</div>
+              </div>
+            ))}
           </div>
         </div>
+      </div>
+      
+      <div className="ios-footnote">
+        <p>Tap an example or enter your own problem to begin</p>
       </div>
     </div>
   );

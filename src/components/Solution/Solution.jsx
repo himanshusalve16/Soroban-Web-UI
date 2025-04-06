@@ -22,7 +22,10 @@ const Solution = () => {
       id: 1,
       title: 'Standard Method',
       preview: 'Solving using algebraic manipulation and standard formulas...',
-      color: 'linear-gradient(135deg, #6e8efb, #a777e3)',
+      color: 'linear-gradient(135deg, #E8F0FE, #F2F6FD)',
+      borderColor: '#007AFF',
+      iconColor: '#007AFF',
+      icon: '🧮',
       steps: [
         'Step 1: Identify the variables',
         'Step 2: Apply the formula',
@@ -33,7 +36,10 @@ const Solution = () => {
       id: 2,
       title: 'Graphical Method',
       preview: 'Visualizing the problem using coordinate geometry...',
-      color: 'linear-gradient(135deg, #42e695, #3bb2b8)',
+      color: 'linear-gradient(135deg, #F0F8FF, #F5FBFF)',
+      borderColor: '#34C759',
+      iconColor: '#34C759',
+      icon: '📊',
       steps: [
         'Step 1: Plot the variables',
         'Step 2: Identify key points',
@@ -44,7 +50,10 @@ const Solution = () => {
       id: 3,
       title: 'Alternative Approach',
       preview: 'Using an unconventional but efficient approach...',
-      color: 'linear-gradient(135deg, #ffaa85, #ff7d7d)',
+      color: 'linear-gradient(135deg, #F5F5F7, #F8F8FA)',
+      borderColor: '#FF9500',
+      iconColor: '#FF9500',
+      icon: '💡',
       steps: [
         'Step 1: Reframe the problem',
         'Step 2: Apply shortcut formula',
@@ -55,7 +64,10 @@ const Solution = () => {
       id: 4,
       title: 'Step-by-Step Analysis',
       preview: 'Breaking down the problem into smaller, manageable pieces...',
-      color: 'linear-gradient(135deg, #ffd3a5, #fd6585)',
+      color: 'linear-gradient(135deg, #F2F2F7, #F5F5FA)',
+      borderColor: '#5856D6',
+      iconColor: '#5856D6',
+      icon: '🔍',
       steps: [
         'Step 1: Identify the core problem',
         'Step 2: Break down into sub-problems',
@@ -78,10 +90,21 @@ const Solution = () => {
   };
 
   return (
-    <div className="solution-container">
-      <div className="solution-header">
-        <h2>Solution Methods</h2>
-        <p className="problem-text">Problem: {problem}</p>
+    <div className="solution-container ios-style">
+      <div className="ios-header">
+        <button 
+          className="ios-back-button"
+          onClick={() => navigate(-1)}
+        >
+          <span className="ios-back-arrow">‹</span>
+          <span>Back</span>
+        </button>
+        <h2>Solutions</h2>
+        <div className="spacer"></div>
+      </div>
+      
+      <div className="ios-problem">
+        <p className="problem-text">{problem}</p>
       </div>
       
       <div className="carousel-container">
@@ -105,18 +128,22 @@ const Solution = () => {
           {solutionMethods.map((method, index) => (
             <SwiperSlide key={method.id}>
               <div 
-                className="solution-card"
-                style={{background: method.color}}
+                className="ios-card"
                 onClick={() => handleCardClick(method.id)}
+                style={{
+                  background: method.color,
+                  borderColor: method.borderColor
+                }}
               >
-                <div className="card-content">
+                <div className="ios-card-icon" style={{color: method.iconColor}}>
+                  {method.icon}
+                </div>
+                <div className="ios-card-content">
                   <h3>{method.title}</h3>
                   <p>{method.preview}</p>
-                  <div className="card-footer">
-                    <button className="view-solution-btn">
-                      View full solution <span>→</span>
-                    </button>
-                  </div>
+                  <button className="ios-button" style={{backgroundColor: method.borderColor}}>
+                    View Details
+                  </button>
                 </div>
               </div>
             </SwiperSlide>
@@ -124,23 +151,10 @@ const Solution = () => {
         </Swiper>
       </div>
       
-      <div className="instructions">
-        <div className="instruction-card">
-          <div className="instruction-icon">↔️</div>
-          <p>Swipe cards to explore different solution methods</p>
-        </div>
-        <div className="instruction-card">
-          <div className="instruction-icon">👆</div>
-          <p>Tap on a card to view the detailed step-by-step solution</p>
-        </div>
+      <div className="ios-instructions">
+        <div className="instruction-dot"></div>
+        <p>Swipe cards to view different solution methods</p>
       </div>
-      
-      <button 
-        className="back-button"
-        onClick={() => navigate(-1)}
-      >
-        Back to Input
-      </button>
     </div>
   );
 };
