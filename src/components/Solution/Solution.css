@@ -234,4 +234,341 @@
   .ios-card p {
     font-size: 16px;
   }
+}
+
+/* Modern styling for the solution component */
+.solution-container.modern-style {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Header styles */
+.solution-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  margin-bottom: 20px;
+}
+
+.solution-header h2 {
+  font-size: 2rem;
+  color: var(--text-color);
+  font-weight: 700;
+  margin: 0;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background-color: transparent;
+  border: none;
+  color: var(--primary-color);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: var(--border-radius-md);
+  transition: var(--transition-normal);
+}
+
+.back-button:hover {
+  background-color: rgba(108, 92, 231, 0.1);
+}
+
+.back-arrow {
+  font-size: 1.2rem;
+}
+
+.header-spacer {
+  width: 100px;
+}
+
+/* Problem container */
+.problem-container {
+  margin-bottom: 30px;
+}
+
+.problem-card {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-md);
+  border-left: 4px solid var(--primary-color);
+}
+
+.problem-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: var(--primary-color);
+}
+
+.problem-text {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+/* Solutions title */
+.solutions-title {
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+}
+
+.solutions-title h3 {
+  margin: 0 15px;
+  font-size: 1.5rem;
+  color: var(--text-color);
+  white-space: nowrap;
+}
+
+.title-line {
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
+  flex-grow: 1;
+}
+
+/* Carousel container */
+.carousel-container {
+  margin: 20px 0 40px;
+  padding: 20px 0;
+  position: relative;
+}
+
+.solution-carousel {
+  width: 340px;
+  height: 480px;
+  margin: 0 auto;
+}
+
+/* Solution card */
+.solution-card {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition-normal);
+}
+
+.solution-card:hover {
+  transform: translateY(-5px);
+}
+
+.solution-card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px;
+  background-color: rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.solution-card-header h3 {
+  font-size: 1.8rem;
+  margin-top: 15px;
+  font-weight: 700;
+}
+
+.solution-card-icon {
+  font-size: 3rem;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.solution-card-content {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.solution-card-content p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+.solution-steps-preview {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px;
+}
+
+.solution-steps-preview li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.solution-steps-preview li:last-child {
+  border-bottom: none;
+}
+
+.view-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: rgba(255, 255, 255, 0.25);
+  border: none;
+  color: white;
+  padding: 14px 20px;
+  border-radius: var(--border-radius-xl);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  margin-top: auto;
+}
+
+.view-button:hover {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+.arrow-icon {
+  transition: var(--transition-fast);
+}
+
+.view-button:hover .arrow-icon {
+  transform: translateX(5px);
+}
+
+/* Swiper pagination styling */
+.swiper-pagination-bullet {
+  background-color: rgba(108, 92, 231, 0.5);
+  opacity: 0.7;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--primary-color);
+  opacity: 1;
+}
+
+/* Swipe instruction */
+.swipe-instruction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.instruction-indicator {
+  width: 50px;
+  height: 5px;
+  background-color: var(--text-tertiary);
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.swipe-instruction p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Footer styles */
+.solution-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.new-problem-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 30px;
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  border-radius: var(--border-radius-xl);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-normal);
+}
+
+.new-problem-button:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .solution-header h2 {
+    font-size: 1.6rem;
+  }
+  
+  .problem-card {
+    padding: 20px;
+  }
+  
+  .problem-text {
+    font-size: 1rem;
+  }
+  
+  .solution-carousel {
+    width: 300px;
+    height: 440px;
+  }
+  
+  .solution-card-header {
+    padding: 20px;
+  }
+  
+  .solution-card-header h3 {
+    font-size: 1.5rem;
+  }
+  
+  .solution-card-content {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .solution-container.modern-style {
+    padding: 0 10px 30px;
+  }
+  
+  .solution-header h2 {
+    font-size: 1.4rem;
+  }
+  
+  .back-button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+  
+  .header-spacer {
+    width: 60px;
+  }
+  
+  .solution-carousel {
+    width: 280px;
+    height: 420px;
+  }
 } 

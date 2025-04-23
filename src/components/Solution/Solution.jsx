@@ -22,9 +22,8 @@ const Solution = () => {
       id: 1,
       title: 'Standard Method',
       preview: 'Solving using algebraic manipulation and standard formulas...',
-      color: 'linear-gradient(135deg, #E8F0FE, #F2F6FD)',
-      borderColor: '#007AFF',
-      iconColor: '#007AFF',
+      color: 'linear-gradient(135deg, #a29bfe, #6c5ce7)',
+      iconColor: '#6c5ce7',
       icon: '🧮',
       steps: [
         'Step 1: Identify the variables',
@@ -36,9 +35,8 @@ const Solution = () => {
       id: 2,
       title: 'Graphical Method',
       preview: 'Visualizing the problem using coordinate geometry...',
-      color: 'linear-gradient(135deg, #F0F8FF, #F5FBFF)',
-      borderColor: '#34C759',
-      iconColor: '#34C759',
+      color: 'linear-gradient(135deg, #55efc4, #00b894)',
+      iconColor: '#00b894',
       icon: '📊',
       steps: [
         'Step 1: Plot the variables',
@@ -50,9 +48,8 @@ const Solution = () => {
       id: 3,
       title: 'Alternative Approach',
       preview: 'Using an unconventional but efficient approach...',
-      color: 'linear-gradient(135deg, #F5F5F7, #F8F8FA)',
-      borderColor: '#FF9500',
-      iconColor: '#FF9500',
+      color: 'linear-gradient(135deg, #fab1c9, #fd79a8)',
+      iconColor: '#fd79a8',
       icon: '💡',
       steps: [
         'Step 1: Reframe the problem',
@@ -64,9 +61,8 @@ const Solution = () => {
       id: 4,
       title: 'Step-by-Step Analysis',
       preview: 'Breaking down the problem into smaller, manageable pieces...',
-      color: 'linear-gradient(135deg, #F2F2F7, #F5F5FA)',
-      borderColor: '#5856D6',
-      iconColor: '#5856D6',
+      color: 'linear-gradient(135deg, #dfe6e9, #b2bec3)',
+      iconColor: '#636e72',
       icon: '🔍',
       steps: [
         'Step 1: Identify the core problem',
@@ -90,21 +86,30 @@ const Solution = () => {
   };
 
   return (
-    <div className="solution-container ios-style">
-      <div className="ios-header">
+    <div className="solution-container modern-style">
+      <div className="solution-header">
         <button 
-          className="ios-back-button"
+          className="back-button"
           onClick={() => navigate(-1)}
         >
-          <span className="ios-back-arrow">‹</span>
+          <span className="back-arrow">←</span>
           <span>Back</span>
         </button>
         <h2>Solutions</h2>
-        <div className="spacer"></div>
+        <div className="header-spacer"></div>
       </div>
       
-      <div className="ios-problem">
-        <p className="problem-text">{problem}</p>
+      <div className="problem-container">
+        <div className="problem-card">
+          <h3>Your Problem</h3>
+          <p className="problem-text">{problem}</p>
+        </div>
+      </div>
+      
+      <div className="solutions-title">
+        <div className="title-line"></div>
+        <h3>Available Solution Methods</h3>
+        <div className="title-line"></div>
       </div>
       
       <div className="carousel-container">
@@ -128,21 +133,28 @@ const Solution = () => {
           {solutionMethods.map((method, index) => (
             <SwiperSlide key={method.id}>
               <div 
-                className="ios-card"
+                className="solution-card"
                 onClick={() => handleCardClick(method.id)}
                 style={{
-                  background: method.color,
-                  borderColor: method.borderColor
+                  background: method.color
                 }}
               >
-                <div className="ios-card-icon" style={{color: method.iconColor}}>
-                  {method.icon}
-                </div>
-                <div className="ios-card-content">
+                <div className="solution-card-header">
+                  <div className="solution-card-icon">
+                    {method.icon}
+                  </div>
                   <h3>{method.title}</h3>
+                </div>
+                <div className="solution-card-content">
                   <p>{method.preview}</p>
-                  <button className="ios-button" style={{backgroundColor: method.borderColor}}>
-                    View Details
+                  <ul className="solution-steps-preview">
+                    {method.steps.map((step, idx) => (
+                      <li key={idx}>{step}</li>
+                    ))}
+                  </ul>
+                  <button className="view-button">
+                    View Detailed Solution
+                    <span className="arrow-icon">→</span>
                   </button>
                 </div>
               </div>
@@ -151,9 +163,18 @@ const Solution = () => {
         </Swiper>
       </div>
       
-      <div className="ios-instructions">
-        <div className="instruction-dot"></div>
-        <p>Swipe cards to view different solution methods</p>
+      <div className="swipe-instruction">
+        <div className="instruction-indicator"></div>
+        <p>Swipe cards to explore different solution methods</p>
+      </div>
+      
+      <div className="solution-footer">
+        <button 
+          className="new-problem-button"
+          onClick={() => navigate('/')}
+        >
+          <span>Try Another Problem</span>
+        </button>
       </div>
     </div>
   );

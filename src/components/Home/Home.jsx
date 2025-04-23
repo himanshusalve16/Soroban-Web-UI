@@ -46,71 +46,97 @@ const Home = () => {
   ];
 
   return (
-    <div className="home-container ios-style">
-      <div className="ios-header">
-        <h1>AI Education Helper</h1>
+    <div className="home-container modern-style">
+      <div className="hero-section">
+        <div className="hero-content">
+          <h1>AI Education Helper</h1>
+          <p>Solve math and science problems with detailed step-by-step solutions</p>
+        </div>
+        <div className="hero-illustration">
+          <div className="floating-shapes">
+            <div className="shape shape-1"></div>
+            <div className="shape shape-2"></div>
+            <div className="shape shape-3"></div>
+          </div>
+        </div>
       </div>
       
-      <div className="ios-subheader">
-        <p>Solve math and science problems with steps</p>
-      </div>
-      
-      <div className="ios-main-content">
-        <div className="ios-section">
-          <div className="ios-input-field">
-            <form onSubmit={handleSubmit}>
+      <div className="main-content">
+        <div className="input-section">
+          <h2>Enter Your Problem</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="input-area">
               <textarea
-                placeholder="Type your problem here..."
+                placeholder="Type your math or science problem here..."
                 value={textInput}
                 onChange={handleTextInputChange}
+                className="problem-input"
               />
               <button 
                 type="submit" 
-                className="ios-primary-button"
+                className="submit-btn"
                 disabled={!textInput.trim()}
               >
-                Solve Problem
+                <span>Solve Now</span>
+                <span className="btn-icon">→</span>
               </button>
-            </form>
-          </div>
+            </div>
+          </form>
           
-          <div className="ios-separator">
+          <div className="separator">
             <div className="line"></div>
             <span>or</span>
             <div className="line"></div>
           </div>
           
           <button 
-            className="ios-secondary-button"
+            className="camera-btn"
             onClick={handleCameraInput}
           >
-            <span className="ios-camera-icon">📷</span>
-            Take Photo of Problem
+            <span className="camera-icon">📷</span>
+            <span>Take Photo of Problem</span>
           </button>
         </div>
         
-        <div className="ios-section">
+        <div className="examples-section">
           <h2>Example Problems</h2>
-          <div className="ios-examples-list">
+          <div className="examples-list">
             {exampleProblems.map(example => (
               <div 
                 key={example.id} 
-                className="ios-example-item"
+                className="example-card"
                 onClick={() => setTextInput(example.text)}
               >
-                <div className="ios-example-icon">{example.icon}</div>
-                <div className="ios-example-content">
+                <div className="example-icon">{example.icon}</div>
+                <div className="example-content">
                   <p>{example.text}</p>
-                  <span className="ios-example-label">{example.label}</span>
+                  <span className="example-label">{example.label}</span>
                 </div>
-                <div className="ios-chevron">›</div>
               </div>
             ))}
           </div>
         </div>
       </div>
       
-      <div className="ios-footnote">
+      <div className="info-section">
+        <div className="info-card">
+          <div className="info-icon">✨</div>
+          <h3>AI-Powered</h3>
+          <p>Our advanced AI provides accurate solutions to complex problems</p>
+        </div>
+        <div className="info-card">
+          <div className="info-icon">📝</div>
+          <h3>Step-by-Step</h3>
+          <p>Detailed explanations help you understand the solution process</p>
+        </div>
+        <div className="info-card">
+          <div className="info-icon">🔍</div>
+          <h3>Multiple Methods</h3>
+          <p>See different approaches to solving the same problem</p>
+        </div>
+      </div>
+      
+      <div className="footer">
         <p>Tap an example or enter your own problem to begin</p>
       </div>
     </div>
